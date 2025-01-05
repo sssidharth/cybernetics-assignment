@@ -30,5 +30,5 @@
 
  ## Deployment
 
- - The app has been deployed on Vercel. It directly accesses the db.json file for fetching/updating the data as it is serverless. (Creating a json-server itself is a complicated task which works seamlessly in local)
+ - The app has been deployed on Vercel. It directly accesses the db.json file for fetching/updating the data. (Creating a json-server itself is a complicated task which works seamlessly in local)
  - Vercel Link https://cybernetics-assignment.vercel.app/
