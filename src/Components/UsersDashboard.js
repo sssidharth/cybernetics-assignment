@@ -26,11 +26,10 @@ const UsersDashboard = () => {
 
   useEffect(() => {
     if (searchVal !== "") {
-      setUsersData((prevVal) => {
-        return prevVal.filter((val) =>
+      setUsersData(data.filter((val) =>
           val.firstName.toLowerCase().includes(searchVal.toLowerCase())
-        );
-      });
+        )
+      );
     } else {
       setUsersData(data);
     }
@@ -94,7 +93,7 @@ const UsersDashboard = () => {
             />
           );
         })
-      : null;
+      : <p className="font-bold">No Users Found</p>;
   };
 
   return (
