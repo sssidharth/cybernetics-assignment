@@ -1,19 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { setSearchValue } from '../Redux/actions/actions';
 import { useDispatch } from 'react-redux';
 import CustomInputs from './Utilities/CustomInputs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import useDebounceHook from '../CustomHooks/useDebounceHook';
 
 const Topbar = () => {
     const [searchVal, setSearchVal] = useState('');
 
     const dispatch = useDispatch();
 
+    const debouncedSearchVal = useDebounceHook(searchVal, 500);
+
+    useEffect(() => {
+        dispatch(setSearchValue(debouncedSearchVal));
+    }, [debouncedSearchVal, dispatch]);
+
     const handleSearch = (e) => {
         e.preventDefault();
         setSearchVal(e.target.value);
-        dispatch(setSearchValue(e.target.value));
     }
   return (
     <div className='header_base'>

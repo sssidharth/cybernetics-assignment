@@ -4,6 +4,7 @@
  - Routing enabled
  - Features include Users Dashboard, Users Settings Page, Topbar search
  - Responsive desgin to accomodate large and small screens
+ - Added a custom Debounce hook to delay search results
  - Redux saga used for fetching data
  - json-server mocks the HTTP API calls with data being stored in db.json in root directory
  - All inputs, buttons created without external libraries

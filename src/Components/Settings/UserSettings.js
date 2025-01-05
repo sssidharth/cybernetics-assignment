@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import CustomCard from "../Utilities/CustomCard";
 import ProfileImage from "../Utilities/ProfileImage";
@@ -76,7 +77,7 @@ const UserSettings = () => {
   }, [profileData])
 
 
-  const handleInputChange = useCallback((e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormInputs((prevInputs) => ({
      ...prevInputs,
@@ -85,7 +86,7 @@ const UserSettings = () => {
        value: value
      }
     }))
-  } ,[])
+  }
 
   const validateFormInputs = () => {
     let isFormValid = true;
@@ -141,7 +142,6 @@ const UserSettings = () => {
             </div>
           <UserInputs handleInputChange={handleInputChange} formInputs={formInputs} />
         </div>
-        {/* Save Button */}
         <div className="mt-6 flex justify-end">
          <CustomButton text="Edit User" onclick={handleSubmit} className="md:w-56 w-full mt-4 md:mr-6 mb-4" />
         </div>

@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery, delay } from 'redux-saga/effects';
 import apiClient from '../../axios.config';
 import data from '../../db.json';
 import {
@@ -16,6 +16,8 @@ export function* mainSaga() {
 function* handleFetchUsersData() {
     try {
         const response = envPath ? data.users : yield call(() => apiClient.get('/users'));
+
+        yield delay(2000);
         yield put(fetchUsersDataSuccess(envPath ? response : response.data));
     }
     catch (error) {

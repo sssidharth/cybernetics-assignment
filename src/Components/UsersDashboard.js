@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -6,6 +7,7 @@ import ProfileImage from "./Utilities/ProfileImage";
 import CustomButton from "./Utilities/CustomButton";
 import { setSelectedUser } from "../Redux/actions/actions";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import Loader from "./Utilities/LoaderComponent";
 
 const UsersDashboard = () => {
   const [usersData, setUsersData] = useState([]);
@@ -14,6 +16,7 @@ const UsersDashboard = () => {
 
   const data = useSelector((state) => state.usersReducer.usersData);
   const searchVal = useSelector((state) => state.usersReducer.searchValue);
+  const loading = useSelector((state) => state.usersReducer.loading);
 
   useEffect(() => {
     if (data && data.length > 0) {
@@ -33,7 +36,7 @@ const UsersDashboard = () => {
     }
   }, [searchVal]);
 
-  const handleUserClick = (e, user) => {
+  const handleUserClick = (user) => {
     const dataToSend = {
       image: user.image,
       firstName: user.firstName,
@@ -81,7 +84,7 @@ const UsersDashboard = () => {
                   <NavLink to="/settings">
                     <CustomButton
                       icon={faUser}
-                      onclick={(e) => handleUserClick(e, user)}
+                      onclick={() => handleUserClick(user)}
                       text="View User"
                       className="cursor-pointer"
                     />
@@ -96,7 +99,7 @@ const UsersDashboard = () => {
 
   return (
     <div className="inner-container">
-      <div className="flex flex-col justify-between">{renderUsers()}</div>
+    {loading ? <Loader /> : <div className="flex flex-col justify-between">{renderUsers()}</div>}
     </div>
   );
 };
