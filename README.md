@@ -1,14 +1,16 @@
 # React Payments App
 
- - Created using ReactJS (v_18) and Tailwind CSS (v_3.4)
- - Routing enabled
+ - Created using ReactJS (v_18.3.1) and Tailwind CSS (v_3.4)
+ - Routing enabled (Currently 2 pages)
  - Features include Users Dashboard, Users Settings Page, Topbar search
  - Responsive desgin to accomodate large and small screens
  - Added a custom Debounce hook to delay search results
- - Redux saga used for fetching data
+ - Used Redux and Redux saga used for fetching data/making API calls.
+ - Demonstrated the use of code-splitting by Lazy loading the major components.
  - json-server mocks the HTTP API calls with data being stored in db.json in root directory
  - All inputs, buttons created without external libraries
- - External libraries used
+
+ - External libraries used for
     - Fontawesome icons
     - axios
     - redux saga
