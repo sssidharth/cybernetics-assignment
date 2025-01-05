@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter";
+}
+
+.max-width {
+   @apply max-w-[1440px] mx-auto;
+}
+
+.sidebar_base {
+   @apply fixed top-0 left-0 h-screen overflow-auto bg-white text-black-font border-r-2 border-border_color z-50 transform;
+   width: 16rem;
+}
+
+.header_base {
+    @apply bg-white fixed top-0 z-10 flex flex-row xl:h-20 h-36 border-b-2 border-border_color w-[100vw] p-4 size-7 text-center justify-between items-center
+}
+
+
+.pages_container {
+    @apply relative lg:mt-20 mt-36 left-0 bg-container-bg flex flex-col w-[100vw] overflow-y-auto
+}
+
+.inner-container { 
+    @apply flex flex-col pt-6 pl-10 pr-10 overflow-auto;
+}
+
+.card_header {
+    @apply h-6 text-black-font-light font-semibold mb-5
+}
+
+.profile_details {
+    @apply m-0 lg:w-[20%] w-full lg:mb-0 mb-10 flex md:flex-col flex-row text-start
+}
